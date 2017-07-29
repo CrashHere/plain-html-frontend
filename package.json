@@ -4,6 +4,7 @@
   "description": "Crash Here plaon front end",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -12,6 +13,7 @@
     "algoliasearch": "^3.24.3",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "pug": "^2.0.0-rc.2"
+    "pug": "^2.0.0-rc.2",
+    "twilio": "^3.6.1"
   }
 }
