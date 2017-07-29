@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express')
 
 const app = express()
@@ -7,9 +9,7 @@ const routes = require('./routes')
 const PORT = process.env.PORT || 3000
 
 const morgan = require('morgan')
-let algoliasearch = require('algoliasearch');
-let client = algoliasearch('7SG71R3MGX', '6536717a06b5e0e332e909e22eac2aa9');
-let index = client.initIndex('Emergency Housing Services');
+let index = require('./algolia/emergencyHousingServices')
 let bodyParser = require('body-parser');
 app.set('view engine', 'pug')
 app.use(morgan('tiny'))
