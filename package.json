@@ -13,6 +13,7 @@
     "algoliasearch": "^3.24.3",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "morgan": "^1.8.2",
     "pug": "^2.0.0-rc.2",
     "twilio": "^3.6.1"
   }
