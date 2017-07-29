@@ -1,10 +1,27 @@
 html
 	head
 		title Crash Here
+		meta(name='viewport', content='maximum-scale=1,width=device-width,initial-scale=1')
+		link(rel='stylesheet' href='style.css')
+		link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous')
+		script(src='https://use.fontawesome.com/233e2e829d.js')
+		link(href='https://fonts.googleapis.com/css?family=Poppins:400,600', rel='stylesheet')
+
 	body
-		h1 
-		each val in content.hits
-			li
-			    div
-					h2 val.name
-					p val.description
+		.col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-4
+
+			.header
+				.header__title Available Shelters
+				a.header__back(href='/search') Back
+
+			.shelter-list
+				each val in content.hits
+					.shelter
+						h2= val.name
+						p= val.address
+						p= val.availability
+						a.btn.btn-default(href=`unsafe:tel:${val.callToShelterPhone}`) Call Shelter
+						span.shelter__phone
+							i.fa.fa-phone(aria-hidden='true')
+							=" "
+							=val.phone

@@ -1,11 +1,28 @@
 html
 	head
 		title Crash Here
+		meta(name='viewport', content='maximum-scale=1,width=device-width,initial-scale=1')
 		link(rel='stylesheet' href='style.css')
 		link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous')
+		script(src='https://use.fontawesome.com/233e2e829d.js')
+		link(href='https://fonts.googleapis.com/css?family=Poppins:400,600', rel='stylesheet')
 
 	body
-		.col-xs-12.col-sm-8.col-offset-sm-2.col-md-4.col-offset-md-4.col-
-			i.fa.fa-home(aria-hidden="true")
-			| Crash
+		.col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-4
 
+			.logo
+				.logo__title
+					i.fa.fa-home(aria-hidden="true")
+					=" "
+					| Crash
+
+			.search
+				h1 Where are you right now?
+				p.lead 
+					| Enter your location to find the closest place you can get help at.
+					| You can input "City Center" or 
+
+				form(method='post' action='/results')
+					input.form-control(type='search' placeholder='Enter your current location' name='query')
+
+					button.btn.btn-default(type='submit') Find
