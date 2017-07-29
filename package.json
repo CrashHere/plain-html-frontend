@@ -1,0 +1,16 @@
+{
+  "name": "plain-html-frontend",
+  "version": "1.0.0",
+  "description": "Crash Here plaon front end",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "not decided",
+  "dependencies": {
+    "algoliasearch": "^3.24.3",
+    "express": "^4.15.3",
+    "pug": "^2.0.0-rc.2"
+  }
+}
