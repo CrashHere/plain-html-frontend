@@ -1,14 +1,14 @@
+require('dotenv').config()
+
 const express = require('express')
-const algoliasearch = require('algoliasearch');
 const rp = require('request-promise');
-var geocoder = require('geocoder');
 
 const app = express()
 const routes = require('./routes')
 const PORT = process.env.PORT || 3000
 
-let client = algoliasearch('7SG71R3MGX', '6536717a06b5e0e332e909e22eac2aa9');
-let index = client.initIndex('Emergency Housing Services');
+const morgan = require('morgan')
+let index = require('./algolia/emergencyHousingServices')
 let bodyParser = require('body-parser');
 
 var googleMapsClient = require('@google/maps').createClient({
@@ -16,6 +16,7 @@ var googleMapsClient = require('@google/maps').createClient({
 });
 
 app.set('view engine', 'pug')
+app.use(morgan('tiny'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
