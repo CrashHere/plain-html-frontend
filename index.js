@@ -35,7 +35,7 @@ app.post('/results', (req, res) => {
 
 	let ip = req.ip.replace(/^.*:/, '');
 	rp({
-		uri: `https://ipinfo.io/${ip == '::1' ? '': ip}`,
+		uri: `https://ipinfo.io/${ip == '1' ? '': ip}`,
 		json: true
 	})
 	.then(data => {
@@ -97,6 +97,9 @@ app.post('/results', (req, res) => {
 	})
 
 });
+app.get('/results', (req, res) => {
+	res.redirect('/search');
+})
 
 app.use('/', routes)
 

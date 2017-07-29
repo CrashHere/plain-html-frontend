@@ -62,8 +62,17 @@ body, html {
 	box-shadow: 0 0 black;
 	margin-top: -22px;
 }
-a.header__back:hover{
+a.header__back:hover {
 	color:black;
+}
+
+a.logo__title:focus,a.logo__title:active {
+	color:black;
+	text-decoration: none;
+}
+a.logo__title:hover {
+	color:black;
+	text-decoration: underline;	
 }
 
 /* search main */
