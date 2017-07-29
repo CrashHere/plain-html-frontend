@@ -1,7 +1,7 @@
 * {
 	font-family: 'Poppins', sans-serif;
 }
-body, html {
+body.black, html.black {
 	background-color: black;
 }
 
