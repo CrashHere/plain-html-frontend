@@ -1,11 +1,30 @@
 html
 	head
 		title Crash Here
-		meta(name='viewport', content='maximum-scale=1,width=device-width,initial-scale=1')
 		link(rel='stylesheet' href='style.css')
 		link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous')
 		script(src='https://use.fontawesome.com/233e2e829d.js')
 		link(href='https://fonts.googleapis.com/css?family=Poppins:400,600', rel='stylesheet')
+
+		meta(charset="utf-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0")
+		meta(name="HandheldFriendly" content="true")
+		meta(name="theme-color" content="#35343D")
+		meta(name="msapplication-navbutton-color" content="#35343D")
+		meta(name="apple-mobile-web-app-status-bar-style" content="#35343D")
+		meta(name="apple-mobile-web-app-capable" content="yes")
+		meta(name="apple-touch-fullscreen" content="yes")
+		meta(name="application-name" content="Crash Here")
+		meta(name="description" content="Crash Here - Emergency Housing for people who are at risk.")
+		meta(property="og:title" content="Crash Here")
+		meta(property="og:description" content="Crash Here - Emergency Housing for people who are at risk.")
+		meta(property="og:image" content="https://crashhere.space/Hero%202%20Desktop.jpg")
+		meta(property="og:url" content="https://crashhere.space")
+		meta(name="twitter:title" content="Crash Here")
+		meta(name="twitter:description" content="Crash Here - Emergency Housing for people who are at risk.")
+		meta(name="twitter:image" content="https://crashhere.space/Hero%202%20Desktop.jpg")
+		meta(name="twitter:card" content="https://crashhere.space")
 
 	body
 		.col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-4
@@ -25,7 +44,7 @@ html
 						h2= val.name
 						p= val.address
 						p= val.availability
-						a.btn.btn-default(href=`unsafe:tel:${val.callToShelterPhone}`) Call Shelter
+						a.btn.btn-default(href=`tel:${val.callToShelterPhone}`) Call Shelter
 						span.shelter__phone
 							i.fa.fa-phone(aria-hidden='true')
 							=" "

@@ -1,44 +1,70 @@
 html
 	head
 		title Crash Here
-		meta(name='viewport', content='maximum-scale=1,width=device-width,initial-scale=1')
 		link(rel='stylesheet' href='style.css')
 		link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous')
 		script(src='https://use.fontawesome.com/233e2e829d.js')
 		link(href='https://fonts.googleapis.com/css?family=Poppins:400,700', rel='stylesheet')
 
+		meta(charset="utf-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0")
+		meta(name="HandheldFriendly" content="true")
+		meta(name="theme-color" content="#35343D")
+		meta(name="msapplication-navbutton-color" content="#35343D")
+		meta(name="apple-mobile-web-app-status-bar-style" content="#35343D")
+		meta(name="apple-mobile-web-app-capable" content="yes")
+		meta(name="apple-touch-fullscreen" content="yes")
+		meta(name="application-name" content="Crash Here")
+		meta(name="description" content="Crash Here - Emergency Housing for people who are at risk.")
+		meta(property="og:title" content="Crash Here")
+		meta(property="og:description" content="Crash Here - Emergency Housing for people who are at risk.")
+		meta(property="og:image" content="https://crashhere.space/Hero%202%20Desktop.jpg")
+		meta(property="og:url" content="https://crashhere.space")
+		meta(name="twitter:title" content="Crash Here")
+		meta(name="twitter:description" content="Crash Here - Emergency Housing for people who are at risk.")
+		meta(name="twitter:image" content="https://crashhere.space/Hero%202%20Desktop.jpg")
+		meta(name="twitter:card" content="https://crashhere.space")
+
 	body
 		.screen.screen--first
 			table.block-vertical-middle
-				tr(style='background-image: url(/Hero%202%20Desktop.jpg);')
+				tr(style='background-image: url(/Hero%202%20Desktop.jpg)')
 					td
 						.screen__content.col-xs-12.col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2.col-lg-6.col-lg-offset-3
 							h1 See your options.
 							p.lead Crash can help you out if you are at risk.
-							a.btn.btn-default.crashhere-button(href='/search') Find Shelter
-							a.btn.btn-default.crashhere-button(href='#learn-more') Learn More
+							.btn-container
+								a.btn.btn-default.crashhere-button(href='/search') Find Shelter
+							.btn-container
+								a.btn.btn-default.crashhere-button(href='#learn-more') Learn More
 
-		.screen
+		.screen.screen--rising-hands(id='learn-more')
 			table.block-vertical-middle
-				tr(style='background-image: url(/Hero%201%20Desktop.jpg);')
+				tr(style='background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/Hero%201%20Desktop.jpg)')
 					td
-						.screen__content.col-xs-12.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-3
+						.screen__content.col-xs-12.col-sm-10.col-sm-offset-1.col-md-4.col-md-offset-3.col-lg-3.col-lg-offset-3
 							h2 Help is available.
 							p.lead.lead--small Sleeping rough? Don’t feel safe? Need a place to stay the night?  Crash can show you where to find emergency accomodation.	
 							a.btn.btn-default.crashhere-button(href='/search') Find Shelter
 
 
-		.screen.screen--white
+		.screen.screen--white.screen--call-for-action
 			table.block-vertical-middle
-				tr(style='background-image: url(/Hero%203%20Desktop.jpg);')
+				tr(style='background-image: url(/Hero%203%20Desktop.jpg)')
 					td
-						.screen__content.col-xs-12.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-3
+						.screen__content.col-xs-12.col-sm-10.col-sm-offset-1.col-md-4.col-md-offset-3.col-lg-3.col-lg-offset-3
 							h2 Covering Everyone
-							p.lead.lead--small Text 4444 with your current location, and Crash will send you details of the closest shelter.
+							p.lead.lead--small 
+								| Text 
+								a(href='tel:+61481072154') +61481072154
+								=" "
+								| with your current location, and Crash will send you details of the closest shelter.
+							a.btn.btn-default.crashhere-button(href='tel:+61481072154') Text now
 
 
 
-		.screen
+		.screen.screen--footer
 			table.block-vertical-middle
 				tr
 					td
