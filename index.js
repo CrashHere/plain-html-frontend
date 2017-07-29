@@ -12,7 +12,7 @@ let index = require('./algolia/emergencyHousingServices')
 let bodyParser = require('body-parser');
 
 var googleMapsClient = require('@google/maps').createClient({
-  key: ''
+  key: process.env.GOOGLE_MAPS_KEY
 });
 
 app.set('view engine', 'pug')

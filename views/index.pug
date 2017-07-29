@@ -4,8 +4,44 @@ html
 		link(rel='stylesheet' href='style.css')
 		link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous')
 		script(src='https://use.fontawesome.com/233e2e829d.js')
-		link(href='https://fonts.googleapis.com/css?family=Poppins:400,600', rel='stylesheet')
+		link(href='https://fonts.googleapis.com/css?family=Poppins:400,700', rel='stylesheet')
 
 	body
-		h1 CRASH
-		a(href='/search') Search
+		.screen
+			table.block-vertical-middle
+				tr
+					td
+						.screen__content.col-xs-12.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-3
+							h1 See your options.
+							p.lead Crash can help you out if you are at risk.
+							a.btn.btn-default.crashhere-button(href='/search') Find Shelter
+							a.btn.btn-default.crashhere-button(href='#learn-more') Learn More
+
+		.screen
+			table.block-vertical-middle
+				tr
+					td
+						.screen__content.col-xs-12.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-3
+							h2 Help is available.
+							p.lead.lead--small Sleeping rough? Don’t feel safe? Need a place to stay the night?  Crash can show you where to find emergency accomodation.	
+							a.btn.btn-default.crashhere-button(href='/search') Find Shelter
+
+
+		.screen.screen--white
+			table.block-vertical-middle
+				tr
+					td
+						.screen__content.col-xs-12.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-3
+							h2 Covering Everyone
+							p.lead.lead--small Text 4444 with your current location, and Crash will send you details of the closest shelter.
+
+
+
+		.screen
+			table.block-vertical-middle
+				tr
+					td
+						.screen__content.col-xs-12.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-3
+							h2 About Crash
+							p.lead.lead--small Crash was developed as part of the 2017 Govhack NZ Open Data Hackathon. You can find us at 
+								a(href="https://github.com/crashhere") github.com/crashhere
