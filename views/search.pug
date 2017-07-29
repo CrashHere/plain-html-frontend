@@ -20,7 +20,8 @@ html
 				h1 Where are you right now?
 				p.lead 
 					| Enter your location to find the closest place you can get help at.
-					| You can input "City Center" or 
+					br
+					| You can search for e.g. "City Centre", "Ponsonby" or "Mt Eden"
 
 				form(method='post' action='/results')
 					input.form-control(type='search' placeholder='Enter your current location' name='query')

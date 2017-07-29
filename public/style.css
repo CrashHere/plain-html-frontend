@@ -99,3 +99,11 @@ a.header__back:hover{
 .shelter__phone {
 	margin-left: 10px;
 }
+
+.shelter-extra {
+	margin-top: 40px;
+}
+
+.shelter-list p.lead {
+    margin-top: 40px;
+}

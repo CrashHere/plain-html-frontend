@@ -14,6 +14,11 @@ html
 				.header__title Available Shelters
 				a.header__back(href='/search') Back
 
+			if formatted_address
+				.shelter-extra Showing results around
+					=" "
+					span= formatted_address
+
 			.shelter-list
 				each val in content.hits
 					.shelter
@@ -25,3 +30,5 @@ html
 							i.fa.fa-phone(aria-hidden='true')
 							=" "
 							=val.phone
+				if !content.hits.length
+					p.lead No shelters close to that address were found... In the case of emergency and if you life is in danger please call 111.

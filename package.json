@@ -10,10 +10,13 @@
   "author": "",
   "license": "not decided",
   "dependencies": {
+    "@google/maps": "^0.4.3",
     "algoliasearch": "^3.24.3",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "geocoder": "^0.2.3",
     "pug": "^2.0.0-rc.2",
+    "request-promise": "^4.2.1",
     "twilio": "^3.6.1"
   }
 }
