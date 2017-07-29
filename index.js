@@ -33,8 +33,9 @@ app.get('/search', (req, res) => {
 app.post('/results', (req, res) => {
 	console.log('req.body',req.body)
 
+	let ip = req.ip.replace(/^.*:/, '');
 	rp({
-		uri: `https://ipinfo.io/${req.ip == '::1' ? '': req.ip}`,
+		uri: `https://ipinfo.io/${ip == '::1' ? '': ip}`,
 		json: true
 	})
 	.then(data => {
