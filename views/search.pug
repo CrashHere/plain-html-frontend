@@ -5,6 +5,7 @@ html(lang='en')
 		link(rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' crossorigin='anonymous')
 		link(rel='stylesheet' href='http://fonts.googleapis.com/css?family=Poppins:400,700')
 		script(src='http://use.fontawesome.com/233e2e829d.js')
+		script(src='http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js')
 
 		meta(charset="utf-8")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
@@ -31,7 +32,7 @@ html(lang='en')
 		link(href=`/${assets["main.css"]}`, rel='stylesheet')
 
 	body
-		noscript
+		noscript#noscript
 			.col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-4
 
 				.logo
@@ -54,7 +55,17 @@ html(lang='en')
 
 		#root
 
-		script(src='http://js.api.here.com/v3/3.0/mapsjs-core.js', type='text/javascript', charset='utf-8')
-		script(src='http://js.api.here.com/v3/3.0/mapsjs-service.js', type='text/javascript', charset='utf-8')
-		script(src='http://js.api.here.com/v3/3.0/mapsjs-mapevents.js', type='text/javascript', charset='utf-8')
-		script(type='text/javascript', src=`/${assets["main.js"]}`)
+		script.
+			if (Modernizr.smil) {
+				var fjs = document.getElementsByTagName('script')[0];
+				var js1 = document.createElement('script'); js1.src = "http://js.api.here.com/v3/3.0/mapsjs-core.js";
+				var js2 = document.createElement('script'); js2.src = "http://js.api.here.com/v3/3.0/mapsjs-service.js";
+				var js3 = document.createElement('script'); js3.src = "http://js.api.here.com/v3/3.0/mapsjs-mapevents.js";
+				var js4 = document.createElement('script'); js4.src = "/!{assets["main.js"]}";
+				fjs.parentNode.insertBefore(js1, fjs);
+				fjs.parentNode.insertBefore(js2, fjs);
+				fjs.parentNode.insertBefore(js3, fjs);
+				fjs.parentNode.insertBefore(js4, fjs);
+			}
+			else document.getElementById('noscript').style.display = 'block';
+
