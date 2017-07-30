@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "not decided",
+  "license": "MIT",
   "dependencies": {
     "@google/maps": "^0.4.3",
     "algoliasearch": "^3.24.3",
