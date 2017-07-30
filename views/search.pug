@@ -62,7 +62,7 @@ html(lang='en')
 		script(src='http://js.api.here.com/v3/3.0/mapsjs-mapevents.js', type='text/javascript', charset='utf-8')
 
 		script.
-			if (window.FormData) {
+			if (Modernizr.smil) {
 				var fjs = document.getElementsByTagName('script')[0];
 				var js4 = document.createElement('script'); js4.src = "/!{assets["main.js"]}";
 				fjs.parentNode.insertBefore(js4, fjs);
