@@ -10,10 +10,12 @@ const PORT = process.env.PORT || 3000
 const morgan = require('morgan')
 let index = require('./algolia/emergencyHousingServices')
 let bodyParser = require('body-parser');
+let assets = require('./build/asset-manifest.json');
 
 var googleMapsClient = require('@google/maps').createClient({
   key: process.env.GOOGLE_MAPS_KEY
 });
+
 
 app.set('view engine', 'pug')
 app.use(morgan('tiny'))
@@ -27,7 +29,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/search', (req, res) => {
-	res.render('search');
+
+	res.render('search', { assets: assets });
 });
 
 app.post('/results', (req, res) => {

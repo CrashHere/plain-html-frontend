@@ -28,7 +28,7 @@ html(lang='en')
 
 		link(rel='manifest', href='/static/manifest.json')
 		link(rel='shortcut icon', href='/static/favicon.ico')
-		link(href='/static/css/main.4d7fb4af.css', rel='stylesheet')
+		link(href=`/${assets["main.css"]}`, rel='stylesheet')
 
 	body
 		noscript
@@ -57,4 +57,4 @@ html(lang='en')
 		script(src='http://js.api.here.com/v3/3.0/mapsjs-core.js', type='text/javascript', charset='utf-8')
 		script(src='http://js.api.here.com/v3/3.0/mapsjs-service.js', type='text/javascript', charset='utf-8')
 		script(src='http://js.api.here.com/v3/3.0/mapsjs-mapevents.js', type='text/javascript', charset='utf-8')
-		script(type='text/javascript', src='/static/js/main.4aa3950a.js')
+		script(type='text/javascript', src=`/${assets["main.js"]}`)
