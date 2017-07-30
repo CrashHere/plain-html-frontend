@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000
 
 const morgan = require('morgan')
 let index = require('./algolia/emergencyHousingServices')
+const performLocationSearch = require('./algolia/performLocationSearch')
 let bodyParser = require('body-parser');
 let assets = require('./build/asset-manifest.json');
 
@@ -34,70 +35,73 @@ app.get('/search', (req, res) => {
 });
 
 app.post('/results', (req, res) => {
-	console.log('req.body',req.body)
-
-	let ip = req.ip.replace(/^.*:/, '');
+	const { body: { query } } = req
+	const ip = req.ip.replace(/^.*:/, '');
 	rp({
 		uri: `https://ipinfo.io/${ip == '1' ? '': ip}`,
 		json: true
 	})
-	.then(data => {
-		console.log('data',data)
+		.then(data => {
+			let ipLat = parseFloat(data.loc.split(',')[0]);
+			let ipLng = parseFloat(data.loc.split(',')[1]);
+			const location = [ipLat, ipLng]
+			return performLocationSearch(query, location)
+				.then(data => res.render('results', data))
+		})
 
-		let ipLat = parseFloat(data.loc.split(',')[0]);
-		let ipLng = parseFloat(data.loc.split(',')[1]);
 
-		if (!req.body.query) {
-			res.render('results', { content: { hits:[], highlights: [] }, formatted_address: "" });
-		}
 
-		googleMapsClient.placesAutoComplete({
-			input: req.body.query,
-			language: 'en',
-			location: [ipLat, ipLng],
-			radius: 10000,
-			components: {country: 'nz'}
+	// 	if (!req.body.query) {
+	// 		res.render('results', { content: { hits:[], highlights: [] }, formatted_address: "" });
+	// 	}
 
-		}, (err, response) => {
+	// 	googleMapsClient.placesAutoComplete({
+	// 		input: req.body.query,
+	// 		language: 'en',
+	// 		location: [ipLat, ipLng],
+	// 		radius: 10000,
+	// 		components: {country: 'nz'}
 
-			if (!response.json.predictions.length) {
-				index.search({ 
-					query: req.body.query,
-					aroundLatLng: `${ipLat}, ${ipLng}` 
-				}, (err, content) => {
-					res.render('results', { content, formatted_address: "" })
-				});
-			}
+	// 	}, (err, response) => {
 
-			console.log('response.json.predictions', response.json.predictions)
-			console.log('err', err);
-			console.log('response', response);
-			console.log('response.json.predictions[0].place_id',response.json.predictions[0].place_id)
+	// 		if (!response.json.predictions.length) {
+	// 			index.search({ 
+	// 				query: req.body.query,
+	// 				aroundLatLng: `${ipLat}, ${ipLng}` 
+	// 			}, (err, content) => {
+	// 				res.render('results', { content, formatted_address: "" })
+	// 			});
+	// 		}
 
-			googleMapsClient.reverseGeocode({
-			  place_id: response.json.predictions[0].place_id
-			}, (err, response) => {
+	// 		console.log('response.json.predictions', response.json.predictions)
+	// 		console.log('err', err);
+	// 		console.log('response', response);
+	// 		console.log('response.json.predictions[0].place_id',response.json.predictions[0].place_id)
 
-				console.log('err',err);
-				console.log('response',response);
-				console.log('response.json.results',response.json.results)
-				console.log(response.json.results[0].geometry.location)
+	// 		googleMapsClient.reverseGeocode({
+	// 		  place_id: response.json.predictions[0].place_id
+	// 		}, (err, response) => {
 
-				let location = response.json.results[0].geometry.location;
-				// let formatted_address = response.json.results[0].formatted_address;
-				let formatted_address = response.json.results[0].formatted_address+`${location.lat}, ${location.lng}`;
+	// 			console.log('err',err);
+	// 			console.log('response',response);
+	// 			console.log('response.json.results',response.json.results)
+	// 			console.log(response.json.results[0].geometry.location)
 
-				index.search({
-					query: req.body.query, 
-					aroundLatLng: `${location.lat}, ${location.lng}`}, (err, content) => {
+	// 			let location = response.json.results[0].geometry.location;
+	// 			// let formatted_address = response.json.results[0].formatted_address;
+	// 			let formatted_address = response.json.results[0].formatted_address+`${location.lat}, ${location.lng}`;
 
-					res.render('results', { content, formatted_address })
-				});
+	// 			index.search({
+	// 				query: req.body.query, 
+	// 				aroundLatLng: `${location.lat}, ${location.lng}`}, (err, content) => {
 
-			})
+	// 				res.render('results', { content, formatted_address })
+	// 			});
 
-		});
-	})
+	// 		})
+
+	// 	});
+	// })
 
 });
 app.get('/results', (req, res) => {
