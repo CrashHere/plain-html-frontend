@@ -31,7 +31,7 @@ html(lang='en')
 		link(href=`/${assets["main.css"]}`, rel='stylesheet')
 
 	body
-		div
+		noscript
 			.col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-4
 
 				.logo
@@ -48,13 +48,13 @@ html(lang='en')
 						| You can search for e.g. "City Centre", "Ponsonby" or "Mt Eden"
 
 					form(method='post' action='/results')
-						input.form-control(type='search' placeholder='Enter your current location' name='query' required)
+						input.form-control(type='search' placeholder='Enter your current location' name='query')
 
 						button.btn.btn-default(type='submit') Find
 
-		//- #root
+		#root
 
-		//- script(src='http://js.api.here.com/v3/3.0/mapsjs-core.js', type='text/javascript', charset='utf-8')
-		//- script(src='http://js.api.here.com/v3/3.0/mapsjs-service.js', type='text/javascript', charset='utf-8')
-		//- script(src='http://js.api.here.com/v3/3.0/mapsjs-mapevents.js', type='text/javascript', charset='utf-8')
-		//- script(type='text/javascript', src=`/${assets["main.js"]}`)
+		script(src='http://js.api.here.com/v3/3.0/mapsjs-core.js', type='text/javascript', charset='utf-8')
+		script(src='http://js.api.here.com/v3/3.0/mapsjs-service.js', type='text/javascript', charset='utf-8')
+		script(src='http://js.api.here.com/v3/3.0/mapsjs-mapevents.js', type='text/javascript', charset='utf-8')
+		script(type='text/javascript', src=`/${assets["main.js"]}`)
